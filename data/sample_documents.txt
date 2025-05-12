@@ -1,0 +1,8 @@
+Document 1:
+My name is Alice Wonderland and I live at 123 Fantasy Lane, Dreamville. My email is alice.wonder@example.com. You can call me at +1-555-0100. My personal website is https://wonderland.net. My ID is AW12345.
+
+Document 2:
+Bob The Builder works at Construction Corp. His phone number is +1-555-0200 and email is bob.builder@example.org. He resides at 456 Tool Street, BuildCity. His employee ID is BB98765.
+
+Document 3:
+Charlie Brown can be reached at charlie.brown@email.com or by phone at +1-555-0300. He is a friend of Snoopy. His address is 789 Comic Strip, Peanuts Town. His secret code is CB007. 

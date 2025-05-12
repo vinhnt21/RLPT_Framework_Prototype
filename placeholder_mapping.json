@@ -1,0 +1,37 @@
+{
+    "PERSON_NAME": {
+        "<PERSON_NAME_1>": "Bob The Builder",
+        "<PERSON_NAME_2>": "Charlie Brown",
+        "<PERSON_NAME_3>": "Alice Wonderland",
+        "<PERSON_NAME_4>": "John K. Smith"
+    },
+    "EMAIL": {
+        "<EMAIL_1>": "bob.builder@example.org",
+        "<EMAIL_2>": "charlie.brown@email.com",
+        "<EMAIL_3>": "alice.wonder@example.com",
+        "<EMAIL_4>": "john.k.smith@email.co.uk"
+    },
+    "PHONE_NUMBER": {
+        "<PHONE_NUMBER_1>": "+1-555-0200",
+        "<PHONE_NUMBER_2>": "+1-555-0300",
+        "<PHONE_NUMBER_3>": "+1-555-0100",
+        "<PHONE_NUMBER_4>": "+44 20 7946 0123"
+    },
+    "ADDRESS": {
+        "<ADDRESS_1>": "456 Tool Street",
+        "<ADDRESS_2>": "BuildCity",
+        "<ADDRESS_3>": "789 Comic Strip",
+        "<ADDRESS_4>": "Peanuts Town",
+        "<ADDRESS_5>": "123 Fantasy Lane",
+        "<ADDRESS_6>": "Dreamville"
+    },
+    "URL_PERSONAL": {
+        "<URL_PERSONAL_1>": "https://johnksmith.personal.site"
+    },
+    "ID_NUM": {
+        "<ID_NUM_1>": "BB98765",
+        "<ID_NUM_2>": "CB007",
+        "<ID_NUM_3>": "JKS001"
+    },
+    "USERNAME": {}
+}
