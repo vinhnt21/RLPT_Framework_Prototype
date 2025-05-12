@@ -12,7 +12,7 @@ LOCAL_NER_MODEL_NAME = os.getenv("LOCAL_NER_MODEL_NAME", "llama3:instruct")
 
 # RAG Model Names
 RAG_EMBEDDING_MODEL_NAME = os.getenv("RAG_EMBEDDING_MODEL_NAME", "text-embedding-3-small")
-RAG_GENERATIVE_MODEL_NAME = os.getenv("RAG_GENERATIVE_MODEL_NAME", "gpt-4o-mini-2024-07-18")
+RAG_GENERATIVE_MODEL_NAME = os.getenv("RAG_GENERATIVE_MODEL_NAME", "gpt-4.1-mini-2025-04-14")
 
 # Database and File Paths 
 CHROMA_DB_PATH = os.getenv("CHROMA_DB_PATH", "./vector_store")

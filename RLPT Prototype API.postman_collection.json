@@ -1,0 +1,490 @@
+{
+	"info": {
+		"_postman_id": "00af3446-0f79-4fdf-a0aa-d3350bc63a71",
+		"name": "RLPT Prototype API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37274816"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5001/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Health Check",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.11.7"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 May 2025 14:50:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "224"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"local_ner_llm_initialized\": true,\n    \"rag_chain_initialized\": true,\n    \"rag_embeddings_initialized\": true,\n    \"rag_llm_initialized\": true,\n    \"sanitizer_initialized\": true,\n    \"status\": \"ok\",\n    \"vector_store_loaded\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Sanitize Text",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"My name is Alice Wonderland and I live at 123 Fantasy Lane, Dreamville. My email is alice.wonder@example.com. You can call me at +1-555-0100.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5001/sanitize",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"sanitize"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sanitize Text",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"My name is Alice Wonderland and I live at 123 Fantasy Lane, Dreamville. My email is alice.wonder@example.com. You can call me at +1-555-0100.\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5001/sanitize",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"sanitize"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.11.7"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 May 2025 14:58:34 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "554"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"original_text\": \"My name is Alice Wonderland and I live at 123 Fantasy Lane, Dreamville. My email is alice.wonder@example.com. You can call me at +1-555-0100.\",\n    \"pii_mappings_for_this_text\": {\n        \"<ADDRESS_5>\": \"123 Fantasy Lane\",\n        \"<ADDRESS_6>\": \"Dreamville\",\n        \"<EMAIL_3>\": \"alice.wonder@example.com\",\n        \"<PERSON_NAME_3>\": \"Alice Wonderland\",\n        \"<PHONE_NUMBER_3>\": \"+1-555-0100\"\n    },\n    \"sanitized_text\": \"My name is <PERSON_NAME_3> and I live at <ADDRESS_5>, <ADDRESS_6>. My email is <EMAIL_3>. You can call me at <PHONE_NUMBER_3>.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Sanitize Complex Text",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"Contact Mr. John K. Smith at john.k.smith@email.co.uk or call +44 20 7946 0123 for details. His ID is JKS001 and his website is https://johnksmith.personal.site.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5001/sanitize",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"sanitize"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sanitize Complex Text",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"Contact Mr. John K. Smith at john.k.smith@email.co.uk or call +44 20 7946 0123 for details. His ID is JKS001 and his website is https://johnksmith.personal.site.\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5001/sanitize",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"sanitize"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.11.7"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 May 2025 15:27:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "602"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"original_text\": \"Contact Mr. John K. Smith at john.k.smith@email.co.uk or call +44 20 7946 0123 for details. His ID is JKS001 and his website is https://johnksmith.personal.site.\",\n    \"pii_mappings_for_this_text\": {\n        \"<EMAIL_4>\": \"john.k.smith@email.co.uk\",\n        \"<ID_NUM_3>\": \"JKS001\",\n        \"<PERSON_NAME_4>\": \"John K. Smith\",\n        \"<PHONE_NUMBER_4>\": \"+44 20 7946 0123\",\n        \"<URL_PERSONAL_1>\": \"https://johnksmith.personal.site\"\n    },\n    \"sanitized_text\": \"Contact Mr. <PERSON_NAME_4> at <EMAIL_4> or call <PHONE_NUMBER_4> for details. His ID is <ID_NUM_3> and his website is <URL_PERSONAL_1>.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Recover Text",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"My name is <PERSON_NAME_3> and I live at <ADDRESS_5>, <ADDRESS_6>. My email is <EMAIL_3>. You can call me at <PHONE_NUMBER_3>.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5001/recover",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"recover"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Recover Text",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"My name is <PERSON_NAME_3> and I live at <ADDRESS_5>, <ADDRESS_6>. My email is <EMAIL_3>. You can call me at <PHONE_NUMBER_3>.\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5001/recover",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"recover"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.11.7"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 May 2025 15:00:08 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "326"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"recovered_text\": \"My name is Alice Wonderland and I live at 123 Fantasy Lane, Dreamville. My email is alice.wonder@example.com. You can call me at +1-555-0100.\",\n    \"text_with_placeholders\": \"My name is <PERSON_NAME_3> and I live at <ADDRESS_5>, <ADDRESS_6>. My email is <EMAIL_3>. You can call me at <PHONE_NUMBER_3>.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Query RAG System",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"What is Alice Wonderland's email and where does she live?\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5001/query",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Query RAG System",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"What is Alice Wonderland's email and where does she live?\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5001/query",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"query"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.11.7"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 May 2025 15:02:38 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "445"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"final_answer_to_user\": \"Alice Wonderland's email is alice.wonder@example.com and she lives at 123 Fantasy Lane, Dreamville.\",\n    \"original_query\": \"What is Alice Wonderland's email and where does she live?\",\n    \"sanitized_query_sent_to_rag\": \"What is <PERSON_NAME_3>'s email and where does she live?\",\n    \"sanitized_rag_answer\": \"<PERSON_NAME_3>'s email is <EMAIL_3> and she lives at <ADDRESS_5>, <ADDRESS_6>.\",\n    \"source_document_count\": 3\n}"
+				}
+			]
+		},
+		{
+			"name": "Embed New Text",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \"My name is Alice Wonderland and I live at 123 Fantasy Lane, Dreamville. My email is alice.wonder@example.com. You can call me at +1-555-0100.\",\n    \"metadata\": {\"source\": \"new_employee_memo\"}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5001/embed_text",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"embed_text"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Embed New Text",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"My name is Alice Wonderland and I live at 123 Fantasy Lane, Dreamville. My email is alice.wonder@example.com. You can call me at +1-555-0100.\",\n    \"metadata\": {\"source\": \"new_employee_memo\"}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5001/embed_text",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"embed_text"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.1.3 Python/3.11.7"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 May 2025 15:01:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "390"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Text sanitized and added to vector database successfully.\",\n    \"original_text_preview\": \"My name is Alice Wonderland and I live at 123 Fantasy Lane, Dreamville. My email is alice.wonder@exa...\",\n    \"pii_detected_and_mapped\": true,\n    \"sanitized_text_embedded_preview\": \"My name is <PERSON_NAME_3> and I live at <ADDRESS_5>, <ADDRESS_6>. My email is <EMAIL_3>. You can ca...\"\n}"
+				}
+			]
+		}
+	]
+}

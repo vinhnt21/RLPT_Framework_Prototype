@@ -67,8 +67,6 @@ rlpt_prototype/
      CHROMA_DB_PATH="./vector_store"
      PLACEHOLDER_MAPPING_FILE="./placeholder_mapping.json"
      SAMPLE_DOCUMENTS_PATH="./data/sample_documents.txt"
-     PROMPT_NER_SYSTEM="You are a Named Entity Recognition assistant..."
-     PROMPT_NER_USER_TEMPLATE="Identify PII in the following text: {text_input}"
      ```
 
 5. **Initialize Placeholder Mapping File:**
@@ -80,13 +78,14 @@ rlpt_prototype/
        "PHONE_NUMBER": {},
        "ADDRESS": {},
        "URL_PERSONAL": {},
-       "ID_NUM": {}
+       "ID_NUM": {},
+       "USERNAME": {},
    }
    ```
 
 6. **Ingest Sample Data into Vector Database:**
    ```bash
-   python scripts/ingest_data.py
+   python ingest_data.py
    ```
 
 7. **Run the Flask Application:**
