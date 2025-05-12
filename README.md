@@ -23,8 +23,7 @@ rlpt_prototype/
 │   └── sample_documents.txt
 ├── vector_store/            # ChromaDB persistence directory
 ├── placeholder_mapping.json # Stores PII placeholders and original values
-├── scripts/
-│   └── ingest_data.py       # Script to populate ChromaDB
+├── ingest_data.py           # Script to populate ChromaDB
 ├── models/
 │   └── input/               # Input data for the model
 │   └── util.py              # Utility functions for the model
@@ -64,7 +63,7 @@ rlpt_prototype/
      OLLAMA_BASE_URL="http://localhost:11434"
      LOCAL_NER_MODEL_NAME="DebertaV3_For_NER"
      RAG_EMBEDDING_MODEL_NAME="text-embedding-3-small"
-     RAG_GENERATIVE_MODEL_NAME="gpt-4o-mini-2024-07-18"
+     RAG_GENERATIVE_MODEL_NAME="gpt-4.1-mini-2025-04-14"
      CHROMA_DB_PATH="./vector_store"
      PLACEHOLDER_MAPPING_FILE="./placeholder_mapping.json"
      SAMPLE_DOCUMENTS_PATH="./data/sample_documents.txt"
