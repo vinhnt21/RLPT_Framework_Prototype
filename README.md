@@ -27,7 +27,7 @@ rlpt_prototype/
 ├── models/
 │   └── input/               # Input data for the model
 │   └── util.py              # Utility functions for the model
-│   └── model.py             # Model for the model
+│   └── model.py             # Model
 └── rlpt/                    # Core RLPT logic
     ├── __init__.py
     ├── prompts.py           # Prompts for local LLM (NER)
